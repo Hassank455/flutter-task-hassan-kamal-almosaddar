@@ -13,34 +13,31 @@ class FlutterTaskApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizeProvider(
-      baseSize: Size(393, 852),
+      baseSize: Size(360, 820),
       width: context.screenWidth,
       height: context.screenHeight,
       child: Builder(
-        builder: (context) => Directionality(
-          textDirection: TextDirection.rtl, // 👈 هنا السحر
-          child: MaterialApp(
-            title: AppStrings.appName,
-            theme: Themes.light(context),
-            darkTheme: Themes.dark(context),
-            themeMode: ThemeMode.system,
-            locale: const Locale('ar'),
-            supportedLocales: const [
-              Locale('en'), // English
-              Locale('ar'), // Arabic
-            ],
-            localizationsDelegates: const [
-              // AppLocalizations.delegate, // Generated delegate
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
+        builder: (context) => MaterialApp(
+          title: AppStrings.appName,
+          theme: Themes.light(context),
+          darkTheme: Themes.dark(context),
+          themeMode: ThemeMode.system,
+          locale: const Locale('ar'),
+          supportedLocales: const [
+            Locale('en'), // English
+            Locale('ar'), // Arabic
+          ],
+          localizationsDelegates: const [
+            // AppLocalizations.delegate, // Generated delegate
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
 
-            debugShowCheckedModeBanner: false,
-            initialRoute: Routes.bottomNavScreen,
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.bottomNavScreen,
 
-            onGenerateRoute: AppRouter().generateRoute,
-          ),
+          onGenerateRoute: AppRouter().generateRoute,
         ),
       ),
     );

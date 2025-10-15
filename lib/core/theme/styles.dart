@@ -33,7 +33,7 @@ class AppTextStyles {
 
   static TextStyle medium(
     BuildContext context, {
-    double fontSize = AppSize.s16,
+    double fontSize = AppSize.s14,
     Color color = AppColors.textColor,
   }) => _baseTextStyle(
     context: context,

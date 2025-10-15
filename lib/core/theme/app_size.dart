@@ -1,4 +1,16 @@
 class AppSize {
+  static const heightBottomNavigationBar = 62;
+  static const widthItemBottomNavigationBar = 61;
+  static const heightItemBottomNavigationBar = 46;
+  static const heightItemCategory = 41.0;
+  static const radiusApp = 4.0;
+  static const paddingCategoryContainer = 12.0;
+  static const marginCategoryContainer = 8.0;
+  static const heightItemSupCategory = 78.0;
+  static const widthItemSupCategory = 73.0;
+  static const marginSupCategoryContainer = 12.0;
+
+
   static const double s0 = 0;
   static const double s1 = 1;
   static const double s2 = 2;
@@ -32,6 +44,7 @@ class AppSize {
   static const double s30 = 30.0;
   static const double s31 = 31.0;
   static const double s32 = 32.0;
+  static const double s33 = 33.0;
   static const double s34 = 34.0;
   static const double s35 = 35.0;
   static const double s36 = 36.0;
@@ -87,9 +100,4 @@ class AppSize {
   static const double s313 = 313.0;
   static const double s320 = 320.0;
   static const double s322 = 322.0;
-
-  static const loadingItemCount = 4;
-  static const heightBottomNavigationBar = 62;
-  static const widthItemBottomNavigationBar = 61;
-  static const heightItemBottomNavigationBar = 46;
 }
