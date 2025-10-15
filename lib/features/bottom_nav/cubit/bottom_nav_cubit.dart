@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/features/add_ad_screen/add_ad_screen.dart';
 import 'package:flutter_task/features/bottom_nav/cubit/bottom_nav_state.dart';
 import 'package:flutter_task/features/chat_screen/chat_screen.dart';
-import 'package:flutter_task/features/home_screen/home_screen.dart';
+import 'package:flutter_task/features/home_screen/ui/home_screen.dart';
 import 'package:flutter_task/features/my_ads_screen/my_ads_screen.dart';
 import 'package:flutter_task/features/profile_screen/profile_screen.dart';
 

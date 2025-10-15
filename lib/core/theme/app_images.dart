@@ -4,6 +4,8 @@ class AppSvgImage {
   static const addAd = "add_box";
   static const chat = "chat";
   static const myAds = "dataset";
+  static const arrowBack = "arrow_back";
+  static const check = "check";
 }
 
 class AppPngImage {
