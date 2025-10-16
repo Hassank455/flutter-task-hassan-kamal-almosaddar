@@ -6,6 +6,11 @@ class AppSvgImage {
   static const myAds = "dataset";
   static const arrowBack = "arrow_back";
   static const check = "check";
+  static const boxOffer = "bxs_offer";
+  static const favorite = "favorite";
+  static const fire = "fire";
+  static const build = "build";
+  static const addShoppingCart = "add_shopping_cart";
 }
 
 class AppPngImage {

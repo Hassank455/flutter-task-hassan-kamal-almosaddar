@@ -18,8 +18,9 @@ class HeaderHomeAndCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        verticalSpace(context, context.setHeight(AppSize.s10)),
+        // verticalSpace(context, context.setHeight(AppSize.s10)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

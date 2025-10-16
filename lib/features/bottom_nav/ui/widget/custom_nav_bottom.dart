@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task/core/helpers/responsive_helper/size_provider.dart';
 import 'package:flutter_task/core/helpers/spacing.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
 import 'package:flutter_task/core/theme/app_images.dart';
@@ -17,79 +18,87 @@ class CustomNavBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bottomNavCubit = context.read<BottomNavCubit>();
-    return BlocBuilder<BottomNavCubit, BottomNavState>(
-      builder: (context, state) => Container(
-        height: context.setHeight(AppSize.heightBottomNavigationBar),
-        width: double.infinity,
-        padding: EdgeInsets.symmetric(
-          horizontal: context.setMinSize(11),
-          vertical: context.setMinSize(4),
-        ),
-
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(color: AppColors.black.withOpacity(0.1), width: 1),
+    return SizeProvider(
+      baseSize: Size(context.screenWidth, AppSize.heightBottomNavigationBar),
+      width: context.screenWidth,
+      height: AppSize.heightBottomNavigationBar,
+      child: BlocBuilder<BottomNavCubit, BottomNavState>(
+        builder: (context, state) => Container(
+          height: context.sizeProvider.height,
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(
+            horizontal: context.setMinSize(11),
+            vertical: context.setMinSize(4),
           ),
-          // color: Theme.of(context).cardColor,
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.grey.withOpacity(0.2),
-          //     spreadRadius: 1,
-          //     blurRadius: 3,
-          //     offset: const Offset(0, 2),
-          //   ),
-          // ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _buildNavItem(
-              context,
-              title: AppStrings.homeBottomNavigationBar,
-              imageName: AppSvgImage.home,
-              isSelected: state.currentIndex == 0,
-              onTap: () {
-                bottomNavCubit.setIndexScreen(0);
-              },
+
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: AppColors.black.withOpacity(0.1),
+                width: 1,
+              ),
             ),
-            _buildNavItem(
-              context,
-              title: AppStrings.chatBottomNavigationBar,
-              imageName: AppSvgImage.chat,
-              isSelected: state.currentIndex == 1,
-              onTap: () {
-                bottomNavCubit.setIndexScreen(1);
-              },
-            ),
-            _buildNavItem(
-              context,
-              title: AppStrings.addAnAdBottomNavigationBar,
-              imageName: AppSvgImage.addAd,
-              isSelected: state.currentIndex == 2,
-              onTap: () {
-                bottomNavCubit.setIndexScreen(2);
-              },
-              isCenter: true,
-            ),
-            _buildNavItem(
-              context,
-              title: AppStrings.myAdsBottomNavigationBar,
-              imageName: AppSvgImage.myAds,
-              isSelected: state.currentIndex == 3,
-              onTap: () {
-                bottomNavCubit.setIndexScreen(3);
-              },
-            ),
-            _buildNavItem(
-              context,
-              title: AppStrings.profileBottomNavigationBar,
-              imageName: AppSvgImage.account,
-              isSelected: state.currentIndex == 4,
-              onTap: () {
-                bottomNavCubit.setIndexScreen(4);
-              },
-            ),
-          ],
+            // color: Theme.of(context).cardColor,
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey.withOpacity(0.2),
+            //     spreadRadius: 1,
+            //     blurRadius: 3,
+            //     offset: const Offset(0, 2),
+            //   ),
+            // ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem(
+                context,
+                title: AppStrings.homeBottomNavigationBar,
+                imageName: AppSvgImage.home,
+                isSelected: state.currentIndex == 0,
+                onTap: () {
+                  bottomNavCubit.setIndexScreen(0);
+                },
+              ),
+              _buildNavItem(
+                context,
+                title: AppStrings.chatBottomNavigationBar,
+                imageName: AppSvgImage.chat,
+                isSelected: state.currentIndex == 1,
+                onTap: () {
+                  bottomNavCubit.setIndexScreen(1);
+                },
+              ),
+              _buildNavItem(
+                context,
+                title: AppStrings.addAnAdBottomNavigationBar,
+                imageName: AppSvgImage.addAd,
+                isSelected: state.currentIndex == 2,
+                onTap: () {
+                  bottomNavCubit.setIndexScreen(2);
+                },
+                isCenter: true,
+              ),
+              _buildNavItem(
+                context,
+                title: AppStrings.myAdsBottomNavigationBar,
+                imageName: AppSvgImage.myAds,
+                isSelected: state.currentIndex == 3,
+                onTap: () {
+                  bottomNavCubit.setIndexScreen(3);
+                },
+              ),
+              _buildNavItem(
+                context,
+                title: AppStrings.profileBottomNavigationBar,
+                imageName: AppSvgImage.account,
+                isSelected: state.currentIndex == 4,
+                onTap: () {
+                  bottomNavCubit.setIndexScreen(4);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

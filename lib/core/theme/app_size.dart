@@ -1,5 +1,5 @@
 class AppSize {
-  static const heightBottomNavigationBar = 62;
+  static const heightBottomNavigationBar = 62.0;
   static const widthItemBottomNavigationBar = 61;
   static const heightItemBottomNavigationBar = 46;
   static const heightItemCategory = 41.0;
@@ -9,7 +9,8 @@ class AppSize {
   static const heightItemSupCategory = 78.0;
   static const widthItemSupCategory = 73.0;
   static const marginSupCategoryContainer = 12.0;
-
+  static const heightItemProduct = 360.0;
+  static const heightImageProduct = 215.0;
 
   static const double s0 = 0;
   static const double s1 = 1;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task/core/helpers/responsive_helper/sizer_helper_extension.dart';
+import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/widgets/custom_app_bar.dart';
 import 'package:flutter_task/features/bottom_nav/cubit/bottom_nav_cubit.dart';
 import 'package:flutter_task/features/bottom_nav/cubit/bottom_nav_state.dart';
@@ -16,8 +18,8 @@ class BottomNanScreen extends StatelessWidget {
       buildWhen: (previous, current) =>
           previous.currentIndex != current.currentIndex,
       builder: (context, state) => Scaffold(
-        appBar: CustomAppBar(),
-        extendBody: true,
+        appBar: CustomAppBar(toolbarHeight: context.setHeight(AppSize.s40)),
+        // extendBody: true,
         bottomNavigationBar: SafeArea(
           top: false,
           child: const CustomNavBottom(),
