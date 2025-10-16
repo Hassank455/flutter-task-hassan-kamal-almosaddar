@@ -1,0 +1,26 @@
+[
+  { "id": 2, "name": "ملابس", "icon_url": "https://..." },
+  { "id": 3, "name": "أحذية", "icon_url": "https://..." },
+  { "id": 4, "name": "إكسسوارات", "icon_url": "https://..." },
+  { "id": 5, "name": "رجال", "icon_url": "https://..." },
+  { "id": 1, "name": "كل العروض", "icon_url": "https://..." },
+
+  {
+    "id": 21,
+    "name": "ساعات",
+    "parent_id": 2,
+    "icon_url": "https://i.ibb.co/xqQJ7qTk/d5b316d3502d78a465c435b34fa8e70925fcc045.png"
+  },
+  {
+    "id": 22,
+    "name": "موبايلات",
+    "parent_id": 3,
+    "icon_url": "https://i.ibb.co/HpfFncm8/1f354408102923fd6961cb072d4ea3a8b2758844.png"
+  },
+  {
+    "id": 31,
+    "name": "موضة رجالى",
+    "parent_id": 3,
+    "icon_url": "https://i.ibb.co/RJSP8t8/24b0962276e50c480329714a01704f0b21e03eac.png"
+  }
+]

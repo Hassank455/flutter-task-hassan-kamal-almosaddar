@@ -5,9 +5,11 @@ import 'package:flutter_task/core/theme/app_colors.dart';
 import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/widgets/custom_cached_network_image.dart';
 import 'package:flutter_task/core/widgets/custom_text.dart';
+import 'package:flutter_task/features/home_screen/data/models/category_model.dart';
 
 class ItemSupCategoryWidget extends StatelessWidget {
-  const ItemSupCategoryWidget({super.key});
+  final CategoryModel subCategory;
+  const ItemSupCategoryWidget({super.key, required this.subCategory, });
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +29,11 @@ class ItemSupCategoryWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(AppSize.radiusApp),
             color: AppColors.black.withOpacity(0.1),
           ),
-          child: Image.network(
-            'https://i.ibb.co/RJSP8t8/24b0962276e50c480329714a01704f0b21e03eac.png',
-          ),
+          child: Image.network(subCategory.iconUrl!),
         ),
         verticalSpace(context, AppSize.s5),
         CustomText(
-          text: 'ساعات',
+          text: subCategory.name,
           textAlign: TextAlign.center,
           style: Theme.of(
             context,

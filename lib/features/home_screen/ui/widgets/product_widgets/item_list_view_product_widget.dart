@@ -6,9 +6,11 @@ import 'package:flutter_task/core/theme/app_images.dart';
 import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/widgets/custom_image.dart';
 import 'package:flutter_task/core/widgets/custom_text.dart';
+import 'package:flutter_task/features/home_screen/data/models/product_model.dart';
 
 class ItemListViewProductWidget extends StatelessWidget {
-  const ItemListViewProductWidget({super.key});
+  final ProductModel product;
+  const ItemListViewProductWidget({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,7 @@ class ItemListViewProductWidget extends StatelessWidget {
           Container(
             height: context.setHeight(AppSize.heightImageProduct),
             decoration: BoxDecoration(color: AppColors.black.withOpacity(0.05)),
-            child: Image.network(
-              'https://i.ibb.co/hJvFwVST/02e47cf0ed554bc399ec7a98c03dccd8f99147c6.png',
-            ),
+            child: Image.network(product.imageUrl!),
           ),
           verticalSpace(context, AppSize.s4),
 
@@ -41,17 +41,18 @@ class ItemListViewProductWidget extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CustomText(
-                          text: 'جاكيت من الصوف مناسب',
+                          text: product.title,
                           maxLines: 1,
                           style: Theme.of(context).textTheme.titleMedium!
                               .copyWith(fontSize: context.setSp(14)),
                         ),
                       ),
-                      CustomSvgImage(
-                        imageName: AppSvgImage.boxOffer,
-                        width: AppSize.s20,
-                        height: AppSize.s20,
-                      ),
+                      if (product.isOffer == 1)
+                        CustomSvgImage(
+                          imageName: AppSvgImage.boxOffer,
+                          width: AppSize.s20,
+                          height: AppSize.s20,
+                        ),
                     ],
                   ),
                   verticalSpace(context, AppSize.s8),
@@ -63,7 +64,7 @@ class ItemListViewProductWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
-                            text: '32,000,000جم/',
+                            text: '${product.price}جم/',
                             style: Theme.of(context).textTheme.titleMedium!
                                 .copyWith(
                                   color: AppColors.red,
@@ -71,7 +72,7 @@ class ItemListViewProductWidget extends StatelessWidget {
                                 ),
                             children: [
                               TextSpan(
-                                text: '60,000,000',
+                                text: product.oldPrice.toString(),
                                 style: Theme.of(context).textTheme.titleSmall!
                                     .copyWith(
                                       fontSize: context.setSp(12),

@@ -1,4 +1,11 @@
+import 'package:flutter_task/core/db/app_database.dart';
 import 'package:flutter_task/features/bottom_nav/cubit/bottom_nav_cubit.dart';
+import 'package:flutter_task/features/home_screen/cubit/home_cubit.dart';
+import 'package:flutter_task/features/home_screen/data/local/dao/category_dao.dart';
+import 'package:flutter_task/features/home_screen/data/local/dao/product_dao.dart';
+import 'package:flutter_task/features/home_screen/data/repository/home_repository.dart';
+import 'package:flutter_task/features/home_screen/data/repository/home_repository_impl.dart';
+import 'package:flutter_task/features/home_screen/data/seed/seed_loader.dart';
 import 'package:get_it/get_it.dart';
 
 //! important
@@ -7,17 +14,26 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
-  // Dio & ApiService
-  // Dio dio = await DioFactory.getDio();
-  // getIt.registerLazySingleton<ApiService>(
-  //   () => ApiService(dio, baseUrl: dotenv.env['API_BASE_URL']!),
-  // );
+  getIt.registerLazySingleton<AppDatabase>(() => AppDatabase());
+  await getIt<AppDatabase>().init();
+
+  // Seed (تشغيل مرّة عند الإقلاع)
+  getIt.registerLazySingleton<SeedLoader>(() => SeedLoader());
+  await getIt<SeedLoader>().runIfEmpty();
+
+  // DAOs
+  getIt.registerLazySingleton<CategoryDao>(() => CategoryDao());
+  getIt.registerLazySingleton<ProductDao>(() => ProductDao());
+
+  // Repo
+  getIt.registerLazySingleton<HomeRepository>(
+    () => HomeRepositoryImpl(getIt<CategoryDao>(), getIt<ProductDao>()),
+  );
 
   // home
   getIt.registerLazySingleton<BottomNavCubit>(() => BottomNavCubit());
 
-  // getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
-  // getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt()));
+  getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt()));
 
   // Profile
   // getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
