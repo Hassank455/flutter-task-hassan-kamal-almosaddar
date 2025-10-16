@@ -1,0 +1,4 @@
+[
+  { "id": 1, "package_id": 1, "product_id": 1001, "qty": 1 },
+  { "id": 2, "package_id": 1, "product_id": 1003, "qty": 1 }
+]

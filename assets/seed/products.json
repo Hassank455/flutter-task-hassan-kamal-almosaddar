@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1002,
+    "title": "قميص رجالي",
+    "image_url": "https://i.ibb.co/93Crfv4Q/39396c0f969c78e31feab7577c6a606ad53a21d3.png",
+    "price": 520.0,
+    "old_price": 150.0,
+    "category_id": 22,
+    "brand": "Generic",
+    "condition": "new",
+    "payment_method": "any",
+    "is_offer": 0,
+    "created_at": 1719825000000
+  },
+  {
+    "id": 1003,
+    "title": "حذاء رياضي",
+    "image_url": "https://i.ibb.co/3m4gQtkM/f97b967b0fdcf12befcea140b80fb64dd515f5bf.png",
+    "price": 350.0,
+    "category_id": 31,
+    "condition": "new",
+    "payment_method": "installments",
+    "is_offer": 1,
+    "created_at": 1719830000000
+  },
+  {
+    "id": 1001,
+    "title": "جاكيت هودي",
+    "image_url": "https://i.ibb.co/hJvFwVST/02e47cf0ed554bc399ec7a98c03dccd8f99147c6.png",
+    "price": 230.0,
+    "old_price": 320.0,
+    "category_id": 21,
+    "brand": "Generic",
+    "condition": "new",
+    "payment_method": "cash",
+    "is_offer": 1,
+    "created_at": 1719820000000
+  }
+]

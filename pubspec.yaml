@@ -50,6 +50,7 @@ dependencies:
   cached_network_image: ^3.4.1
   #
   sqflite: ^2.4.2
+  path: ^1.9.1
   # animated loading button
   loading_animation_widget: ^1.3.0
   device_preview: ^1.2.0
@@ -80,6 +81,8 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/sql/
+    - assets/seed/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
