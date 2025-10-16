@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/bloc_observer.dart';
@@ -8,5 +10,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Future.wait<void>([setupGetIt()]);
   Bloc.observer = MyBlocObserver();
-  runApp(const FlutterTaskApp());
+  runApp(
+    FlutterTaskApp(),
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => FlutterTaskApp(),
+    // ),
+  );
 }
