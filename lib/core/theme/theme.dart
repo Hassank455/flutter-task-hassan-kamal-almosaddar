@@ -26,42 +26,42 @@ class Themes {
         vertical: context.setHeight(AppSize.s16),
         horizontal: context.setWidth(AppSize.s10),
       ),
-      hintStyle: AppTextStyles.regular(
+      hintStyle: AppTextStyles.medium(
         context,
-        color: AppColors.black.withOpacity(0.5),
+        color: AppColors.textColor.withOpacity(0.5),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s12)),
+        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s8)),
         borderSide: BorderSide(
-          color: AppColors.borderColor,
+          color: AppColors.black.withOpacity(0.1),
           width: context.setWidth(AppSize.s1),
         ),
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s12)),
+        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s8)),
         borderSide: BorderSide(
-          color: AppColors.borderColor,
+          color: AppColors.black.withOpacity(0.1),
           width: context.setWidth(AppSize.s1),
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s12)),
+        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s8)),
         borderSide: BorderSide(
-          color: AppColors.borderColor,
+          color: AppColors.black.withOpacity(0.1),
           width: context.setWidth(AppSize.s1),
         ),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s12)),
+        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s8)),
         borderSide: BorderSide(
           color: AppColors.red,
           width: context.setWidth(AppSize.s1),
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s12)),
+        borderRadius: BorderRadius.circular(context.setMinSize(AppSize.s8)),
         borderSide: BorderSide(
-          color: AppColors.borderColor,
+          color: AppColors.black.withOpacity(0.1),
           width: context.setWidth(AppSize.s1),
         ),
       ),
