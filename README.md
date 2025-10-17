@@ -13,6 +13,9 @@ This project follows a **Clean Architecture** and **feature-based** structure to
 - **Feature Layer:** Each feature (e.g., Home, BottomNav, Profile) has its own UI, Cubit, Repository, and data sources.
 - **Data Layer:** Handles SQLite database management, migrations, and data seeding from JSON assets.
 
+For full implementation details and folder responsibilities, see [ARCHITECTURE.md](ARCHITECTURE.md).
+
+
 🧩 Technologies:
 
 - **GetIt** for dependency injection
@@ -144,6 +147,14 @@ The app adapts to all screen sizes using a custom **responsive helper system**:
     │
     ├── flutter_task_app.dart   # Root widget
     └── main.dart               # Entry point
+
+---
+
+## 🔀 Branch Naming Convention
+
+This project follows a consistent and descriptive branch naming strategy.
+
+📄 See full details in [BRANCHING.md](BRANCHING.md)
 
 ---
 
