@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/core/routing/routes.dart';
 import 'package:flutter_task/core/theme/app_images.dart';
 import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/theme/app_strings.dart';
@@ -30,23 +31,28 @@ class HeaderHomeAndCategoriesWidget extends StatelessWidget {
                 fontSize: context.setSp(AppSize.s16),
               ),
             ),
-            Row(
-              children: [
-                CustomText(
-                  text: AppStrings.subTextForHomeScreen,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontSize: context.setSp(AppSize.s16),
-                    color: AppColors.black.withOpacity(0.5),
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(Routes.filterScreen);
+              },
+              child: Row(
+                children: [
+                  CustomText(
+                    text: AppStrings.subTextForHomeScreen,
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontSize: context.setSp(AppSize.s16),
+                      color: AppColors.black.withOpacity(0.5),
+                    ),
                   ),
-                ),
-                horizontalSpace(context, context.setWidth(AppSize.s8)),
-                CustomSvgImage(
-                  imageName: AppSvgImage.arrowBack,
-                  width: AppSize.s18,
-                  height: AppSize.s18,
-                  color: AppColors.black.withOpacity(0.70),
-                ),
-              ],
+                  horizontalSpace(context, context.setWidth(AppSize.s8)),
+                  CustomSvgImage(
+                    imageName: AppSvgImage.arrowBack,
+                    width: AppSize.s18,
+                    height: AppSize.s18,
+                    color: AppColors.black.withOpacity(0.70),
+                  ),
+                ],
+              ),
             ),
           ],
         ).marginSymmetric(horizontal: context.setWidth(AppSize.s16)),

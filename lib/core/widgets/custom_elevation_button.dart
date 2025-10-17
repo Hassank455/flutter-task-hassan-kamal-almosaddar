@@ -99,7 +99,10 @@ class CustomElevatedButton extends StatelessWidget {
       text: title,
       style:
           textStyle ??
-          Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
+          Theme.of(context).textTheme.headlineSmall!.copyWith(
+            fontSize: context.setSp(AppSize.s16),
+            color: Colors.white,
+          ),
     );
 
     return FittedBox(

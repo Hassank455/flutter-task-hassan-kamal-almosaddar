@@ -4,6 +4,7 @@ class AppSize {
   static const heightItemBottomNavigationBar = 46;
   static const heightItemCategory = 41.0;
   static const radiusApp = 4.0;
+  static const radiusTypeFilter = 30.0;
   static const paddingCategoryContainer = 12.0;
   static const marginCategoryContainer = 8.0;
   static const heightItemSupCategory = 78.0;

@@ -14,5 +14,8 @@ class AppSvgImage {
 }
 
 class AppPngImage {
-  static const loginPerson = "login_person";
+  static const close = "close_small";
+  static const realEstate = "real_estate";
+  static const location = "location_on";
+  static const backward = "backward";
 }
