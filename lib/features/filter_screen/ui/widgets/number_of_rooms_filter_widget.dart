@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/core/helpers/extensions.dart';
 import 'package:flutter_task/core/helpers/responsive_helper/sizer_helper_extension.dart';
 import 'package:flutter_task/core/helpers/spacing.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_task/core/theme/app_colors.dart';
 import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/theme/app_strings.dart';
 import 'package:flutter_task/core/widgets/custom_text.dart';
+import 'package:flutter_task/features/filter_screen/cubit/filter_cubit.dart';
+import 'package:flutter_task/features/filter_screen/cubit/filter_state.dart';
 import 'package:flutter_task/features/filter_screen/ui/widgets/filter_container_item_widget.dart';
 
 class NumberOfRoomsFilterWidget extends StatelessWidget {
@@ -24,18 +27,26 @@ class NumberOfRoomsFilterWidget extends StatelessWidget {
           ),
         ),
         verticalSpace(context, AppSize.s12),
-        Wrap(
-          spacing: AppSize.s12,
-          runSpacing: AppSize.s12,
-          children: ['4 غرف', '5 غرف', '6 غرف', '8 غرف']
-              .map(
-                (e) => FilterContainerItemWidget(
-                  text: e,
-                  onTap: () {},
-                  isSelected: false,
-                ),
-              )
-              .toList(),
+        BlocSelector<
+          FilterCubit,
+          FilterState,
+          ({List<int> rooms, int? selected})
+        >(
+          selector: (s) => (rooms: s.rooms, selected: s.selectedRoom),
+          builder: (context, data) {
+            return Wrap(
+              spacing: AppSize.s12,
+              runSpacing: AppSize.s12,
+              children: data.rooms.map((n) {
+                final isSelected = data.selected == n;
+                return FilterContainerItemWidget(
+                  text: '$n غرف',
+                  isSelected: isSelected,
+                  onTap: () => context.read<FilterCubit>().selectRoom(n),
+                );
+              }).toList(),
+            );
+          },
         ),
       ],
     ).marginSymmetric(horizontal: context.setWidth(AppSize.s16));
