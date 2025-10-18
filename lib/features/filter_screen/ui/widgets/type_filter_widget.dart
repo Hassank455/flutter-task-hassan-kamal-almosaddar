@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task/core/helpers/app_logger.dart';
 import 'package:flutter_task/core/helpers/extensions.dart';
 import 'package:flutter_task/core/helpers/responsive_helper/sizer_helper_extension.dart';
 import 'package:flutter_task/core/helpers/spacing.dart';
@@ -6,6 +8,8 @@ import 'package:flutter_task/core/theme/app_colors.dart';
 import 'package:flutter_task/core/theme/app_size.dart';
 import 'package:flutter_task/core/theme/app_strings.dart';
 import 'package:flutter_task/core/widgets/custom_text.dart';
+import 'package:flutter_task/features/filter_screen/cubit/filter_cubit.dart';
+import 'package:flutter_task/features/filter_screen/cubit/filter_state.dart';
 import 'package:flutter_task/features/filter_screen/ui/widgets/filter_container_item_widget.dart';
 
 class TypeFilterWidget extends StatelessWidget {
@@ -13,6 +17,7 @@ class TypeFilterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final filterCubit = context.read<FilterCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,18 +29,29 @@ class TypeFilterWidget extends StatelessWidget {
           ),
         ),
         verticalSpace(context, AppSize.s12),
-        Wrap(
-          spacing: AppSize.s12,
-          runSpacing: AppSize.s12,
-          children: ['الكل', 'توين هاوس', 'فيلا منفصلة', 'تاون هاوس']
-              .map(
-                (e) => FilterContainerItemWidget(
+        BlocSelector<
+          FilterCubit,
+          FilterState,
+          ({List<String> types, String selected})
+        >(
+          selector: (state) =>
+              (types: state.types, selected: state.selectedType),
+          builder: (context, data) {
+            return Wrap(
+              spacing: AppSize.s12,
+              runSpacing: AppSize.s12,
+              children: data.types.map((e) {
+                final isSelected = e == data.selected;
+                return FilterContainerItemWidget(
                   text: e,
-                  onTap: () {},
-                  isSelected: false,
-                ),
-              )
-              .toList(),
+                  onTap: () => context.read<FilterCubit>().changeType(
+                    e,
+                  ), // <-- هنا التصحيح
+                  isSelected: isSelected,
+                );
+              }).toList(),
+            );
+          },
         ),
       ],
     ).marginSymmetric(horizontal: context.setWidth(AppSize.s16));

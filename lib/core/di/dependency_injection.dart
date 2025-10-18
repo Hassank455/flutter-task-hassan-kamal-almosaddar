@@ -1,5 +1,6 @@
 import 'package:flutter_task/core/db/app_database.dart';
 import 'package:flutter_task/features/bottom_nav/cubit/bottom_nav_cubit.dart';
+import 'package:flutter_task/features/filter_screen/cubit/filter_cubit.dart';
 import 'package:flutter_task/features/home_screen/cubit/home_cubit.dart';
 import 'package:flutter_task/features/home_screen/data/local/dao/category_dao.dart';
 import 'package:flutter_task/features/home_screen/data/local/dao/product_dao.dart';
@@ -34,6 +35,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<BottomNavCubit>(() => BottomNavCubit());
 
   getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt()));
+  getIt.registerFactory<FilterCubit>(() => FilterCubit());
 
   // Profile
   // getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
